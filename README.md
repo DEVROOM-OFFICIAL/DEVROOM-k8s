@@ -2,67 +2,39 @@
 <img width="100%" height="auto" src="https://github.com/user-attachments/assets/06e7882b-6b54-40ba-8466-1994943ab772"> 
 <br/> 
 <br/>  
+
+<img src="https://img.shields.io/badge/kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white">  
+<img src="https://img.shields.io/badge/k3s-FFC61C?style=for-the-badge&logo=k3s&logoColor=black">  
+<img src="https://img.shields.io/badge/helm-0F1689?style=for-the-badge&logo=helm&logoColor=white">  
+<br/>  
+
 </div>
 
-## DEVROOM 교육용 컨테이너 운용 K8s 서버
+## 📌 DEVROOM 교육용 컨테이너 운용 K8s 서버
 
-### 개발 환경
-
-- Kubernetes v1.28.2 (Docker Desktop)  
-- Windows10
-
-### 배포 환경
+### 개발 & 배포 환경
 
 - k3s
 - Ubuntu 22.04  
+- Google Cloud (권장)
 
 ## 🔨 환경 구축
 
-### K8S 설치
+### 자세한 사항은 다음 파일 참고 (GCP 기준)
+- install_k3s_server.sh
+- install_k3s_agent.sh
 
-windows ver.
-- Docker Desktop 설치 후 k8s 설정 등록
-
-Linux - container-d ver.
+### k3s 설치
 ```bash
-# install k8s
-curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode=644
-
-# 헬름을 위해 k3s 설정 파일 추출하기
-kubectl config view --raw > ~/.kube/config
-chmod 600 ~/.kube/config
-```
-
-Linux - docker ver. (현재 오류 발생)
-```bash
-# install Docker
-curl -fsSL https://get.docker.com | sh
-# docker 권한 설정
-sudo usermod -aG docker $USER
-newgrp docker
-sudo chown $USER:docker /var/run/docker.sock
-
-# install k8s
+# install k3s
 curl -sfL https://get.k3s.io | sh -s - --docker --disable=traefik --write-kubeconfig-mode=644
 
-# 헬름을 위해 k3s 설정 파일 추출하기
+# 헬름을 위해 k3s 설정 파일 추출
 kubectl config view --raw > ~/.kube/config
 chmod 600 ~/.kube/config
 ```
 
 ### Helm 설치
-
-windows ver.
-```powershell
-# 초콜레티 설치
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-# 헬름 설치
-choco install -y kubernetes-helm
-# 헬름 버전 확인
-helm version
-```
-
-Linux ver.
 ```bash
 # 스크립트를 사용한 헬름 설치
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
@@ -130,31 +102,26 @@ helm ls
 helm uninstall $(helm ls -q)
 ```
 
-### 기타 명령어 목록
+## 📃 기타 명령어 목록
 
 #### vscode-server 접속
 
 ~~브라우저로 다음 링크에 접속. 각 주소는 테스트용 학생임.~~ (현재 테스트용 학생 비활성화 상태)
 ```bash
-114.200.134.130:37001
+k3s.devroom.online:37001
 ```
 #### ssh 접속
 ```bash
 # pod 교체 후 ssh 연결 오류 WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
 ssh-keygen -R [localhost]:2024
-ssh-keygen -R [114.200.134.130]:2024
+ssh-keygen -R [k3s.devroom.online]:2024
 
 # ssh 연결 명령어
 ssh 2024000001-test2024@localhost -p 2024
-ssh 2024000001-test2024@114.200.134.130 -p 2024
+ssh 2024000001-test2024@k3s.devroom.online -p 2024
 
 # 접속 비밀번호
 password: test
-
-# mini pc 테스트용
-ssh hdyang@114.200.134.130 -p 2019
-ssh hdyang@192.168.35.100 -p 2019
-sudo shutdown -h now
 ```
 
 #### 파드 직접 접속 & 제거
