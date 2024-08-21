@@ -3,7 +3,7 @@
 : '
 git config --global user.email "hdyang0686@naver.com"
 git config --global user.name "Yanghyeondong"
-git clone https://github.com/Yanghyeondong/DEV-ROOM
+git clone https://github.com/DEVROOM-OFFICIAL/DEVROOM-k8s
 cd DEV-ROOM
 git checkout -b develop remotes/origin/develop
 git branch -a
