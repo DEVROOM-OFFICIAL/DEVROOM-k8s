@@ -7,18 +7,25 @@
 <img src="https://img.shields.io/badge/k3s-FFC61C?style=for-the-badge&logo=k3s&logoColor=black">  
 <img src="https://img.shields.io/badge/helm-0F1689?style=for-the-badge&logo=helm&logoColor=white">  
 <br/>  
-
+<br/>  
 </div>
 
-## 📌 DEVROOM 교육용 컨테이너 운용 K8s 서버
+# 📌 DEVROOM K8s 운용 시스템
+
+### 📚 [DevRoom 프로젝트 전체 소개](https://github.com/DEVROOM-OFFICIAL/DEVROOM-k8s)
+### - 📙 [DevRoom 프론트엔드 Repo](https://github.com/DEVROOM-OFFICIAL/DEVROOM-frontend)
+### - 📗 [DevRoom 백엔드 Repo](https://github.com/DEVROOM-OFFICIAL/DEVROOM-backend)
+### - 📘 [DevRoom K8s 운용 시스템 Repo](https://github.com/DEVROOM-OFFICIAL/DEVROOM-k8s)
+
+
+<br/>  
+
+## 🔨 환경 구축
 
 ### 개발 & 배포 환경
-
 - k3s
 - Ubuntu 22.04  
 - Google Cloud (권장)
-
-## 🔨 환경 구축
 
 ### 자세한 사항은 다음 파일 참고 (GCP 기준)
 - install_k3s_server.sh
