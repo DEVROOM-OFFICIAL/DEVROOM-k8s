@@ -145,9 +145,6 @@ kubectl delete pod <pod 이름> --force --grace-period=0
 
 # 파드 확인
 kubectl get pods
-
-# cm 제외 모두 제거
-kubectl delete all --all
 ```
 
 ### Grafana ID
