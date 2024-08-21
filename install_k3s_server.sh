@@ -4,11 +4,10 @@
 git config --global user.email "hdyang0686@naver.com"
 git config --global user.name "Yanghyeondong"
 git clone https://github.com/DEVROOM-OFFICIAL/DEVROOM-k8s
-cd DEV-ROOM
+cd DEVROOM-k8s
 git checkout -b develop remotes/origin/develop
 git branch -a
 
-cd k8s/
 sudo chmod 755 install_k3s_server.sh
 sudo chmod 755 install_k3s_agent.sh
 ./install_k3s_server.sh
